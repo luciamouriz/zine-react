@@ -5,7 +5,7 @@
 /////////////////////////////////////////////
 
 /*Carruseles de todas las paginas*/
-.flecha-color {
+.arrow-color {
 
     position: absolute;
     border: none;
@@ -23,7 +23,7 @@
 
 }
 
-.flecha-izquierda {
+.arrow-left {
     left: 0;
     font-size: calc(2em + 1vw);
     @include conf.linear90;
@@ -37,7 +37,7 @@
     }
 }
 
-.flecha-derecha {
+.arrow-right {
     right: 0;
     font-size: calc(2em + 1vw);
     @include conf.linear270;
@@ -51,7 +51,7 @@
     }
 }
 
-.contenedor-style {
+.container-style {
     position: relative;
 
     h2 {
@@ -76,7 +76,7 @@
         margin-left: 4rem;
 
         .popular,
-        .pelicula,
+        .movie,
         .serie,
         .visto {
             transition: .3s ease all;
@@ -145,8 +145,8 @@
 
 .contenedor-recomendaciones {
 
-    .flecha-izquierda,
-    .flecha-derecha {
+    .arrow-left,
+    .arrow-right {
         top: 20%;
     }
 
