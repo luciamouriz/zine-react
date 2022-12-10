@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Ruda:wght@400;500;600;700;800;900&display=swap');
+
+
+$primary-color: white;
+$secondary-color:#139ECA;
+$familyRuda: "Ruda";
+$font-family:(
+    ruda: "Ruda, sans-serif",
+    rudaBold: "Ruda Bold",
+    rudaextraBold: "Ruda ExtraBold",
+    gill: "Gill Sans Ultra Bold Condensed"
+);
+
+/*Tamaño de letra*/
+$Stitle: calc(1em + 2vw); //35px
+$Ssubtitule: calc(1em + 0.9vw); //24px
+$Snormal: calc(1em + 0.7vw); //22px
+$Smedium: calc(1em + 0.5vw); // 25px
+
+
+//Añadimos el mapa de fuentes
+@function fontfamily($family-value){
+    @return map-get($font-family, $family-value );
+}
+
+@mixin flexbox-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flexbox-column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin linear90{
+    background: linear-gradient(90deg, rgba(19, 158, 202, 0.57) 8.93%, rgba(19, 158, 202, 0.291118) 71.87%, rgba(19, 158, 202, 0) 108.65%);
+}
+
+@mixin linear270{
+    background: linear-gradient(270deg, rgba(19, 158, 202, 0.57) 8.93%, rgba(19, 158, 202, 0.291118) 71.87%, rgba(19, 158, 202, 0) 108.65%);
+}
+
+@mixin mobile{
+    @media(max-width: 767px){
+        @content;
+    }
+}
