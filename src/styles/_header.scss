@@ -58,21 +58,21 @@ header {
             width: 90%;
 
 
-            .titulo {
+            .title {
                 font-size: conf.$Stitle;
             }
 
-            .descripcion {
+            .description {
                 width: 80%;
             }
 
-            .botones {
+            .buttons {
 
                 display: flex;
                 flex-direction: row;
                 gap: 2rem;
 
-                .boton-valorado {
+                .button-valued {
                     width: 15%;
                     @include conf.flexbox-row;
                     justify-content: space-evenly;
@@ -89,7 +89,7 @@ header {
                 }
 
 
-                #play {
+                #button-play {
 
                     cursor: pointer;
                     width: 20%;

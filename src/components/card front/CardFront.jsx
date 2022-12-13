@@ -9,12 +9,23 @@ export const CardFront = () => {
             color: "#16CA13"
         },
         orange: {
-            color: "#16CA13"
+            color: "#CAC313"
         },
         red: {
-            color: "#16CA13"
+            color: "#CA1313"
         }
     }
+
+    const getColorStar = () => {
+        if (movies.vote_average >= 7) {
+            return styles.green;
+        } else if (movies.vote_average < 7 && movies.vote_average >= 4) {
+            return styles.orange;
+        } else if (movies.vote_average < 4) {
+            return styles.red;
+        }
+    }
+
 
     const getCarouselPopular = async (url) => {
         const res = await fetch(url);
@@ -35,14 +46,14 @@ export const CardFront = () => {
             <div className="card-front" style={{ backgroundImage: `url(${import.meta.env.VITE_IMG_URL_L}${movies.backdrop_path})` }}>
                 <div className="gradient"></div>
                 <div className="card">
-                    <p className="tipo-video">{movies.media_type == "movie" ? "Pelicula" : "Serie"} </p>
-                    <p className="titulo">{movies.original_title ? movies.original_title : movies.name}</p>
-                    <p className="descripcion">{movies.overview + "..."}</p>
-                    <div className="botones">
-                        <button id="play">&#128898; Reproducir</button>
-                        <div className="boton-valorado">
-                            <div id="star" className="star">&#9733;</div>
-                            <div id="valorado">{Math.round(movies.vote_average)+"/10"}</div>
+                    <p>{movies.media_type == "movie" ? "Pelicula" : "Serie"} </p>
+                    <p className="title">{movies.original_title ? movies.original_title : movies.name}</p>
+                    <p className="description">{movies.overview + "..."}</p>
+                    <div className="buttons">
+                        <button id="button-play">&#128898; Reproducir</button>
+                        <div className="button-valued">
+                            <div id="star" className="star" style={getColorStar()}>&#9733;</div>
+                            <div id="valued">{Math.round(movies.vote_average) + "/10"}</div>
                         </div>
                     </div>
                 </div>
