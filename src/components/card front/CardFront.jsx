@@ -1,5 +1,6 @@
+import axios from "../../axios";
 import { useEffect, useState } from "react";
-
+import requests from "../../requests";
 
 export const CardFront = () => {
 
@@ -27,17 +28,15 @@ export const CardFront = () => {
     }
 
 
-    const getCarouselPopular = async (url) => {
-        const res = await fetch(url);
-        const data = await res.json();
-        setMovies(data.results[Math.floor(Math.random() * data.results.length)]);
-    };
-
 
     useEffect(() => {
-        getCarouselPopular(import.meta.env.VITE_POPULAR);
-
-    }, []);
+        async function fetchData() {
+            const request = await axios.get(requests.fetchPopular);
+            setMovies(request.data.results[Math.floor(Math.random() * request.data.results.length)]);
+            return request;
+        }
+        fetchData();
+    }, [requests.fetchPopular]);
 
 
 

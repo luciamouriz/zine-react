@@ -1,8 +1,8 @@
 
 import { Carousel } from './components/carousels/Carousel'
-import { CarouselPopular } from './components/carousels/CarouselPopular'
-import { CarouselTop10 } from './components/carousels/CarouselTop10'
+import { Footer } from './components/footer/Footer'
 import { Header } from './components/header/Header'
+import requests from './requests'
 
 
 export const App = () => {
@@ -10,9 +10,13 @@ export const App = () => {
         <>
             <Header />
             <main>
-                <CarouselPopular/>
-                <CarouselTop10/>
+                <Carousel title="Popular en Zine" classname="movie" url={requests.fetchPopular}/>
+                <Carousel title="Top 10" classname="top" url={requests.fetchTop10}/>
+                <Carousel title="Peliculas Populares" classname="movie" url={requests.fetchMovies}/>
+                <Carousel title="Series Populares" classname="tv" url={requests.fetchSeries}/>
+                <Carousel title="Recomendaciones" classname="recomendacion" url={requests.fetchRecomendation}/>
             </main>
+            <Footer/>
         </>
     )
 }

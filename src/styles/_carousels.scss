@@ -77,7 +77,7 @@
 
         .popular,
         .movie,
-        .serie,
+        .tv,
         .visto {
             transition: .3s ease all;
             box-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
@@ -142,36 +142,22 @@
 }
 
 //CARRUSEL RECOMENDACIONES 
+.recomendacion {
+    transition: .3s ease all;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
 
-.contenedor-recomendaciones {
-
-    .arrow-left,
-    .arrow-right {
-        top: 20%;
+    img {
+        width: calc(7em + 18vw);
+        height: calc(14em + 20vw);
     }
 
-    .contenedor-carousel-recomendaciones {
-        width: 95%;
-        height: 70%;
-
-        .recomendacion {
-            transition: .3s ease all;
-            box-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
-
-            img {
-                width: calc(7.5em + 18vw);
-                height: calc(14em + 20vw);
-            }
-
-            &:hover {
-                transform: scale(1.2);
-                transform-origin: center;
-            }
-
-        }
-
+    &:hover {
+        transform: scale(1.2);
+        transform-origin: center;
     }
+
 }
+
 
 
 
