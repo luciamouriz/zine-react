@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "../../axios";
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Link, useParams } from 'react-router-dom';
+import requests from "../../requests";
+
 
 export const Carousel = ({ title, classname, url }) => {
 
@@ -24,7 +26,7 @@ export const Carousel = ({ title, classname, url }) => {
         e.target.parentNode.lastElementChild.scrollLeft += e.target.parentNode.lastElementChild.offsetWidth;
     };
 
-
+    
     return (
         <div className="carousel-container">
             <h2>{title}</h2>
@@ -33,13 +35,13 @@ export const Carousel = ({ title, classname, url }) => {
             <div className="carousel-size">
                 <div className="carousel-flex">
                     {movies.length > 0 && movies.map((movie, index) =>
-                        <Link to={`/video/${movie.id}`}>
+                        <Link to={`/${movie.media_type}/${movie.id}`}>
                             <div className={classname}>{
                                     classname == "top" ?
                                         <div className='num-video'>
                                             <p className='top-num'>{index + 1}</p>
-                                            <img src={`${import.meta.env.VITE_IMG_URL_M}${movie.poster_path}`} alt='Imagen portada' />
-                                        </div> : <img src={`${import.meta.env.VITE_IMG_URL_M}${movie.poster_path}`} alt='Imagen' />
+                                            <img src={`${requests.IMG_URL_M}${movie.poster_path}`} alt='Imagen portada' />
+                                        </div> : <img src={`${requests.IMG_URL_M}${movie.poster_path}`} alt='Imagen' />
                                 }</div>
                         </Link>)
                     }

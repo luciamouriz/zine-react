@@ -1,6 +1,6 @@
 
 import { Home } from './pages/Home'
-import { Video } from './pages/Video'
+import { InfoVideo } from './pages/InfoVideo'
 import requests from './requests'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -10,7 +10,7 @@ export const App = () => {
         <BrowserRouter>
             <Routes>
                 <Route element={<Home />} path="/" />
-                <Route element={<Video />} path="/video/:id" />
+                <Route element={<InfoVideo />} path=":video/:id" />
             </Routes>
         </BrowserRouter>
 

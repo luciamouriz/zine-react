@@ -36,13 +36,13 @@ export const Banner = () => {
             return request;
         }
         fetchData();
-    }, [requests.fetchPopular]);
+    }, []);
 
 
 
     return (
         <div className="container-card-front">
-            <div className="card-front" style={{ backgroundImage: `url(${import.meta.env.VITE_IMG_URL_L}${movies.backdrop_path})` }}>
+            <div className="card-front" style={{ backgroundImage: `url(${requests.IMG_URL_L}${movies.backdrop_path})` }}>
                 <div className="gradient"></div>
                 <div className="card">
                     <p>{movies.media_type == "movie" ? "Pelicula" : "Serie"} </p>
