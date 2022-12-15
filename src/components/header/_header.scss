@@ -1,0 +1,35 @@
+@use "../../styles/config" as conf;
+
+
+header {
+
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+
+    .container-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem;
+
+        .logo {
+            width: calc(6em + 3vw);
+        }
+
+        .search {
+            font-family: conf.$familyRuda;
+            font-size: conf.$Snormal;
+            color: conf.$primary-color;
+            background: transparent;
+            width: calc(7em + 7vw);
+            border: 0;
+            border-bottom: 1px white solid;
+
+            &:focus {
+                outline: 0;
+            }
+        }
+    }
+    
+}

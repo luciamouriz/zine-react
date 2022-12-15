@@ -1,5 +1,6 @@
-@forward "./carousels";
-@forward "./header";
+@forward "../components/carousel/carousels";
+@forward "../components/cardfront/cardfront";
+@forward "../components/header/header";
+@forward "../components/footer/footer";
 @forward "./config";
 @forward "./global";
-@forward "./footer";
