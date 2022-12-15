@@ -2,7 +2,7 @@ import axios from "../../axios";
 import { useEffect, useState } from "react";
 import requests from "../../requests";
 
-export const CardFront = () => {
+export const Banner = () => {
 
     const [movies, setMovies] = useState([]);
     const styles = {

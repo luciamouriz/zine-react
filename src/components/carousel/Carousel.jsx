@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "../../axios";
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 export const Carousel = ({ title, classname, url }) => {
 
@@ -15,12 +16,12 @@ export const Carousel = ({ title, classname, url }) => {
         fetchData();
     }, [url]);
 
-    
+
     const handleClickArrowLeft = (e) => {
-        e.target.parentNode.lastElementChild.scrollLeft -=  e.target.parentNode.lastElementChild.offsetWidth;
+        e.target.parentNode.lastElementChild.scrollLeft -= e.target.parentNode.lastElementChild.offsetWidth;
     };
     const handleClickArrowRight = (e) => {
-        e.target.parentNode.lastElementChild.scrollLeft +=  e.target.parentNode.lastElementChild.offsetWidth;
+        e.target.parentNode.lastElementChild.scrollLeft += e.target.parentNode.lastElementChild.offsetWidth;
     };
 
 
@@ -32,13 +33,15 @@ export const Carousel = ({ title, classname, url }) => {
             <div className="carousel-size">
                 <div className="carousel-flex">
                     {movies.length > 0 && movies.map((movie, index) =>
-                        <div className={classname}>{
-                            classname == "top" ?
-                                <div className='num-video'>
-                                    <p className='top-num'>{index + 1}</p>
-                                    <img src={`${import.meta.env.VITE_IMG_URL_M}${movie.poster_path}`} alt='Imagen portada' />
-                                </div> : <img src={`${import.meta.env.VITE_IMG_URL_M}${movie.poster_path}`} alt='Imagen' />
-                        }</div>)
+                        <Link to={`/video/${movie.id}`}>
+                            <div className={classname}>{
+                                    classname == "top" ?
+                                        <div className='num-video'>
+                                            <p className='top-num'>{index + 1}</p>
+                                            <img src={`${import.meta.env.VITE_IMG_URL_M}${movie.poster_path}`} alt='Imagen portada' />
+                                        </div> : <img src={`${import.meta.env.VITE_IMG_URL_M}${movie.poster_path}`} alt='Imagen' />
+                                }</div>
+                        </Link>)
                     }
                 </div>
             </div>

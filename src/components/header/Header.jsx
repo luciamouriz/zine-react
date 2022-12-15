@@ -1,6 +1,5 @@
 
 import logo from "../../assets/logo.png"
-import { CardFront } from "../cardfront/CardFront"
 import { Search } from "../search/Search"
 
 export const Header = () => {
@@ -12,8 +11,6 @@ export const Header = () => {
                 </a>
                 <Search />
             </div>
-
-            <CardFront />
         </header>
     )
 }
