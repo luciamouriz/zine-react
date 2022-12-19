@@ -1,10 +1,9 @@
 @use "../../styles/config" as conf;
 
 /////////////////////////////////////////////
-///CARRUSEL GENERALES///
+///CAROUSELS GENERALS///
 /////////////////////////////////////////////
 
-/*Carruseles de todas las paginas*/
 .arrow-color {
 
     position: absolute;
@@ -56,54 +55,51 @@
 
     h2 {
         font-family: conf.fontfamily(rudaBold);
-        margin-left: 3%;
+        margin-left: 4%;
     }
-}
 
-.carousel-size {
+    .carousel-size {
+        width: 96.5%;
+        padding: 3rem 0 3rem 0;
+        overflow: hidden;
+        scroll-behavior: smooth;
 
-    width: 96.5%;
-    padding: 3rem 0 3rem 0;
-    overflow: hidden;
-    scroll-behavior: smooth;
+        .carousel-flex {
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 2rem;
+            margin-left: 4rem;
 
-    .carousel-flex {
-        display: flex;
-        flex-wrap: nowrap;
-        flex-direction: row;
-        align-items: flex-start;
-        gap: 2rem;
-        margin-left: 4rem;
+            .movie,
+            .visto {
+                transition: .3s ease all;
+                box-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
 
-        .popular,
-        .movie,
-        .tv,
-        .visto {
-            transition: .3s ease all;
-            box-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
+                img {
+                    width: calc(4.5em + 11vw);
+                    height: calc(7em + 15vw);
+                }
 
-            img {
-                width: calc(4.5em + 11vw);
-                height: calc(7em + 15vw);
+                &:hover {
+                    transform: scale(1.2);
+                    transform-origin: center;
+                }
             }
 
-            &:hover {
-                transform: scale(1.2);
-                transform-origin: center;
-            }
         }
-
     }
 }
+
+
 
 /////////////////////////////////////////////
 ///CAMBIOS DE CARRUSEL INDEPENDIENTES///
 /////////////////////////////////////////////
 
-//CARRUSEL TENDENCIAS
-
+//CAROUSEL TOP 10
 .top {
-
     height: calc(7em + 13vw);
     padding: 0 2rem 0 2rem;
     background: linear-gradient(0deg, rgba(19, 158, 202, 0.73) 0%, rgba(19, 158, 202, 0.54) 24.28%, rgba(19, 158, 202, 0.33) 58.64%, rgba(19, 158, 202, 0) 113.72%);
@@ -141,8 +137,8 @@
     }
 }
 
-//CARRUSEL RECOMENDACIONES 
-.recomendacion {
+//CAROUSEL RECOMENDATION 
+.recomendation {
     transition: .3s ease all;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
 
@@ -159,68 +155,53 @@
 }
 
 
+//CAROUSEL CAST
+.cast {
+    text-align: center;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
+    margin-bottom: 18rem;
 
-
-//CARRUSEL REPARTO
-
-.contenedor-reparto {
-    h2 {
-        margin-left: 0;
+    img {
+        width: calc(4em + 7vw);
+        height: calc(6em + 10vw);
     }
 
-    .reparto {
-
-        text-align: center;
-        box-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
-
-        img {
-            width: calc(4em + 7vw);
-            height: calc(6em + 10vw);
-        }
-
-        .depart {
-            font-family: conf.$familyRuda;
-            padding: 1rem;
-        }
+    .depart {
+        font-family: conf.$familyRuda;
+        padding: 1rem;
     }
-
 }
+
+
 
 //CARRUSEL SIMILARES
+.similar {
+    position: relative;
+    transition: .3s ease all;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
 
-.contenedor-similar {
-    margin-top: 18rem;
 
-    h2 {
-        margin-left: 0;
+    .title-similar {
+        position: absolute;
+        font-size: conf.$Ssubtitule;
+        top: 70%;
+        left: 4%;
+        width: 96%;
+        background-color: #139fca7b;
     }
 
-    .similar {
-        position: relative;
-        transition: .3s ease all;
-        box-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
-
-        .title-similar {
-            position: absolute;
-            font-size: conf.$Ssubtitule;
-            top: 70%;
-            left: 4%;
-            width: 96%;
-            background-color: #139fca7b;
-        }
-
-        img {
-            width: calc(14em + 13vw);
-            height: calc(7em + 10vw);
-        }
-
-        &:hover {
-            transform: scale(1.2);
-            transform-origin: center;
-        }
+    img {
+        width: calc(14em + 13vw);
+        height: calc(7em + 10vw);
     }
 
+    &:hover {
+        transform: scale(1.2);
+        transform-origin: center;
+    }
 }
+
+
 
 //CARRUSEL VISTAS
 

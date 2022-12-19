@@ -13,8 +13,8 @@ export const Home = () => {
                 <Carousel title="Popular en Zine" classname="movie" url={requests.fetchPopular} />
                 <Carousel title="Top 10" classname="top" url={requests.fetchTop10} />
                 <Carousel title="Peliculas Populares" classname="movie" url={requests.fetchMovies} />
-                <Carousel title="Series Populares" classname="tv" url={requests.fetchSeries} />
-                <Carousel title="Recomendaciones" classname="recomendacion" url={requests.fetchRecomendation} />
+                <Carousel title="Series Populares" classname="movie" url={requests.fetchSeries} />
+                <Carousel title="Recomendaciones" classname="recomendation" url={requests.fetchRecomendation} />
             </main>
             <Footer />
         </>

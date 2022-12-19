@@ -1,25 +1,31 @@
 @use "../../styles/config" as conf;
 
-.back-arrow{
+
+
+.back-arrow {
     font-size: calc(1em + 4vw);
-    grid-column: 1/2;
+    grid-column: 1 / 2;
     text-align: center;
-    a{
+
+    a {
         text-decoration: none;
     }
 }
 
-.title-ficha{
-    font-size: conf.$Stitle;
-    font-family: conf.fontfamily(rudaextraBold);
-}
 
-.ficha{
-    grid-column: 2/11;
+.info-video {
+    grid-column: 2 / 11;
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    #genero{
+    margin-bottom: 6em;
+
+    .title-info {
+        font-size: conf.$Stitle;
+        font-family: conf.fontfamily(rudaextraBold);
+    }
+
+    .gender {
         font-family: conf.fontfamily(rudaBold);
     }
 }
