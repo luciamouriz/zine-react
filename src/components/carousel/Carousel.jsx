@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Link } from 'react-router-dom';
 import requests from "../../requests";
 
 
-export const Carousel = ({ title, classname, url }) => {
+export const Carousel = ({ title, classname, url , video }) => {
 
 
     const [movies, setMovies] = useState([]);
@@ -13,6 +13,7 @@ export const Carousel = ({ title, classname, url }) => {
         async function fetchData() {
             const request = await axios.get(url);
             setMovies(request.data.cast)
+            //Si no es data.results añadimos el data.cast (para el carousel de reparto en la page InfoVideo)
             request.data.results ? setMovies(request.data.results) : setMovies(request.data.cast)
             return request;
         }
@@ -40,7 +41,7 @@ export const Carousel = ({ title, classname, url }) => {
     const getSimilar = (movie) => {
         if (movie.backdrop_path != null) {
             return [<p className='title-similar'>{movie.title}</p>,
-            <Link to={movie.media_type ? `/${movie.media_type}/${movie.id}` : `/${classname}/${movie.id}`}>
+            <Link to={movie.media_type ? `/${movie.media_type}/${movie.id}` : `/${video}/${movie.id}`}>
                 <img src={`${requests.IMG_URL_M}${movie.backdrop_path}`} alt='Poster Similar' />
             </Link>]
         } else { return }
@@ -57,7 +58,7 @@ export const Carousel = ({ title, classname, url }) => {
                 <div className="carousel-flex">
                     {movies.length > 0 && movies.map((movie, index) =>
 
-                        <Link to={movie.media_type ? `/${movie.media_type}/${movie.id}` : `/${classname}/${movie.id}`}>
+                        <Link to={movie.media_type ? `/${movie.media_type}/${movie.id}` : `/${video}/${movie.id}`}>
                             <div className={classname}>{
                                 classname == "top" ?
                                     <div className='num-video'>

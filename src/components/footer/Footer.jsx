@@ -6,34 +6,34 @@ export const Footer = () => {
         <footer>
             <div className="info-footer">
                 <div className="rrss-footer">
-                    <h2>Siguenos</h2>
-                    <img src={rrss}/>
+                    <h2>Follow us</h2>
+                    <img src={rrss} />
                 </div>
-                <div className="conocenos">
-                    <h2>Conocenos</h2>
-                    <p><a href="#">Trabaja con nosotros</a></p>
-                    <p><a href="#">Contactanos</a></p>
+                <div className="knowus">
+                    <h2>Know us</h2>
+                    <p><a href="#">Jobs</a></p>
+                    <p><a href="#">Contact Us</a></p>
                 </div>
-                <div className="condiciones">
-                    <h2>Condiciones</h2>
-                    <p><a href="#">Privacidad</a></p>
-                    <p><a href="#">Términos de uso</a></p>
-                    <p><a href="#">Avisos legales</a></p>
+                <div className="terms">
+                    <h2>Terms</h2>
+                    <p><a href="#">Privacy</a></p>
+                    <p><a href="#">Terms of Use</a></p>
+                    <p><a href="#">Legal Notices</a></p>
                 </div>
-                <div className="ayuda">
-                    <h2>¿Necesitas ayuda?</h2>
-                    <p><a href="#">Cuenta</a></p>
-                    <p><a href="#">Centro de ayuda</a></p>
-                    <p><a href="#">Canjea Tarjeta Regalo</a></p>
-                    <p><a href="#">Preguntas frecuentes</a></p>
+                <div className="help">
+                    <h2>Need help?</h2>
+                    <p><a href="#">Account</a></p>
+                    <p><a href="#">Help Center</a></p>
+                    <p><a href="#">Buy Gift Card</a></p>
+                    <p><a href="#">FAQ</a></p>
                 </div>
             </div>
-            <div className="lineas">
+            <div className="lines">
                 <span></span>
-                <img className="logo-footer" src={zine} alt="Logo Zine"/>
-                    <span></span>
-                    <p className="copy">Copyright &copy; 2022 Zine - Todos los derechos reservados. API TMDB.</p>
+                <img className="logo-footer" src={zine} alt="Logo Zine" />
+                <span></span>
+                <p className="copy">Copyright &copy; 2022 Zine - Made with &#128153; by Lucia. API TMDB.</p>
             </div>
         </footer>
-  )
+    )
 }

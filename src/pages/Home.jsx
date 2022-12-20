@@ -5,16 +5,18 @@ import { Header } from '../components/header/Header'
 import requests from '../requests'
 
 export const Home = () => {
+
+   
     return (
         <>
             <Header />
             <main>
                 <Banner />
-                <Carousel title="Popular en Zine" classname="movie" url={requests.fetchPopular} />
+                <Carousel title="Popular in Zine" classname="movie" url={requests.fetchPopular} />
                 <Carousel title="Top 10" classname="top" url={requests.fetchTop10} />
-                <Carousel title="Peliculas Populares" classname="movie" url={requests.fetchMovies} />
-                <Carousel title="Series Populares" classname="movie" url={requests.fetchSeries} />
-                <Carousel title="Recomendaciones" classname="recomendation" url={requests.fetchRecomendation} />
+                <Carousel title="Popular Movies" classname="movie" url={requests.fetchMovies} video={"movie"}/>
+                <Carousel title="Popular Series" classname="movie" url={requests.fetchSeries} video={"tv"}/>
+                <Carousel title="Recommendations" classname="recomendation" url={requests.fetchRecomendation} />
             </main>
             <Footer />
         </>

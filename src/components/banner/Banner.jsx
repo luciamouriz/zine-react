@@ -1,6 +1,7 @@
 import axios from "../../axios";
 import { useEffect, useState } from "react";
 import requests from "../../requests";
+import { Link } from "react-router-dom";
 
 export const Banner = () => {
 
@@ -38,21 +39,24 @@ export const Banner = () => {
         fetchData();
     }, []);
 
+    const handleClickPlay = () => {
 
+
+    }
 
     return (
         <div className="container-card-front">
             <div className="card-front" style={{ backgroundImage: `url(${requests.IMG_URL_L}${movies.backdrop_path})` }}>
                 <div className="gradient"></div>
                 <div className="card">
-                    <p>{movies.media_type == "movie" ? "Pelicula" : "Serie"} </p>
+                    <p>{movies.media_type}</p>
                     <p className="title">{movies.original_title ? movies.original_title : movies.name}</p>
                     <p className="description">{movies.overview + "..."}</p>
                     <div className="buttons">
-                        <button id="button-play">&#128898; Reproducir</button>
+                        <Link className="button-play" to={`/${movies.media_type}/${movies.id}`}>&#128898; Reproducir</Link>
                         <div className="button-valued">
-                            <div id="star" className="star" style={getColorStar()}>&#9733;</div>
-                            <div id="valued">{Math.round(movies.vote_average) + "/10"}</div>
+                            <div className="star" style={getColorStar()}>&#9733;</div>
+                            <div>{Math.round(movies.vote_average) + "/10"}</div>
                         </div>
                     </div>
                 </div>

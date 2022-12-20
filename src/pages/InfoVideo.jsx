@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { Carousel } from "../components/carousel/Carousel"
 import { Footer } from "../components/footer/Footer"
 import { HeadVideo } from "../components/head-video/HeadVideo"
@@ -14,14 +14,14 @@ export const InfoVideo = () => {
       <Header />
       <main>
         <div className="contenedor-ficha">
-          <HeadVideo key={id} id={id} video={video} />
-          <div className="ficha">
-            <Carousel title="Reparto" classname="cast" url={`/${video}/${id}/credits${requests.fetchInfoVideo}`} />
-            <Carousel title="Similares" classname="similar" url={`/${video}/${id}/similar${requests.fetchInfoVideo}`} />
+          <Link className="back-arrow" to="/">&#129092;</Link>
+          <div className="info-video">
+            <HeadVideo key={id} id={id} video={video} />
+            <Carousel title="Cast" classname="cast" url={`/${video}/${id}/credits${requests.fetchInfoVideo}`} />
+            <Carousel title="Similar" classname="similar" url={`/${video}/${id}/similar${requests.fetchInfoVideo}`} video={video} />
           </div>
         </div>
       </main>
-
       <Footer />
 
     </>

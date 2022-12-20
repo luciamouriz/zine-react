@@ -31,9 +31,11 @@ h2 {
 
 
 .contenedor-ficha {
-    margin-left: 10em;
-    margin-right: 10em;
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    grid-template-rows: 1fr;
     padding-top: 3rem;
+
 }
 
 

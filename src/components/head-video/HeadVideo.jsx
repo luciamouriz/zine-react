@@ -41,7 +41,7 @@ export const HeadVideo = ({ id, video }) => {
             </iframe>
 
         } else {
-            return <img src={`${requests.IMG_URL_L}${movies.backdrop_path}`} className='proximamente' />;
+            return <img src={`${requests.IMG_URL_L}${movies.backdrop_path}`} className='info-img' alt="Poster Movie/TV" />;
         }
     }
 
@@ -63,14 +63,11 @@ export const HeadVideo = ({ id, video }) => {
     return (
 
         <>
-            <Link className="back-arrow" to="/">&#129092;</Link>
-            <div className="info-video">
-                {existVideo()}
-                {filterInfo()}
-                <hr />
-                <p>{movies.overview}</p>
-                <hr />
-            </div>
+            {existVideo()}
+            {filterInfo()}
+            <hr />
+            <p>{movies.overview}</p>
+            <hr />
         </>
 
     )
