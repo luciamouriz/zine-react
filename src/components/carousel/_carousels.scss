@@ -9,8 +9,8 @@
     position: absolute;
     border: none;
     font-size: 3rem;
-    width: calc(0.7em + 2vw);
-    height: calc(3em + 11vw);
+    width: calc(0.7em + 1vw);
+    height: calc(3em + 6vw);
     top: calc(54% - 30%);
     line-height: 3rem;
     color: conf.$primary-color;
@@ -82,10 +82,7 @@
                     height: calc(7em + 15vw);
                 }
 
-                &:hover {
-                    transform: scale(1.2);
-                    transform-origin: center;
-                }
+                @include conf.hover-videos;
             }
 
         }
@@ -101,16 +98,13 @@
 //CAROUSEL TOP 10
 .top {
     height: calc(7em + 13vw);
-    padding: 0 2rem 0 2rem;
+    padding: 1rem 2rem 0 2rem;
     background: linear-gradient(0deg, rgba(19, 158, 202, 0.73) 0%, rgba(19, 158, 202, 0.54) 24.28%, rgba(19, 158, 202, 0.33) 58.64%, rgba(19, 158, 202, 0) 113.72%);
     border-radius: 1rem;
     transition: .3s ease all;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
 
-    &:hover {
-        transform: scale(1.1);
-        transform-origin: center;
-    }
+    @include conf.hover-videos;
 
     .num-video {
         @include conf.flexbox-row;
@@ -147,10 +141,7 @@
         height: calc(14em + 20vw);
     }
 
-    &:hover {
-        transform: scale(1.2);
-        transform-origin: center;
-    }
+    @include conf.hover-videos;
 
 }
 
@@ -174,7 +165,7 @@
 
 
 
-//CARRUSEL SIMILARES
+//CAROUSEL SIMILAR
 .similar {
     position: relative;
     transition: .3s ease all;
@@ -195,10 +186,7 @@
         height: calc(7em + 10vw);
     }
 
-    &:hover {
-        transform: scale(1.2);
-        transform-origin: center;
-    }
+    @include conf.hover-videos;
 }
 
 
@@ -223,7 +211,7 @@
 }
 
 
-//CARRUSEL EPISODIOS
+//CAROUSEL EPISODIOS
 .contenedor-episodes-none {
     display: none;
 }

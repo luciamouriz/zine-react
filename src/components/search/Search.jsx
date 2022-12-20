@@ -13,7 +13,8 @@ export const Search = () => {
         async function fetchData() {
             if (search.length > 0) {
                 const request = await axios.get(`${requests.fetchSearch}${search}&page=1&include_adult=false`);
-                setMovies(request.data.results)
+                //Lista de movie/tv
+                setMovies(request.data.results.filter(data => data.media_type != "person"))
                 return request;
             }
         }
@@ -30,15 +31,20 @@ export const Search = () => {
     return (
         <>
             <input type="text" name="text" className="search" placeholder="SEARCH" onChange={handleChange} />
-            <div className="search-container">
-                <div className="search-videos">
-                    {movies.length > 0 && movies.map((movie) =>
-                        <Link to={`/${movie.media_type}/${movie.id}`}>
-                            <img src={`${requests.IMG_URL_M}${movie.poster_path}`} alt="Movie/Tv Image" />
-                        </Link>)}
-                </div>
+            {search.length > 0 ?
+                <div className="search-container">
+                    <div className="search-videos">
+                        {movies.length > 0 && movies.map((movie) =>
+                            <Link to={`/${movie.media_type}/${movie.id}`}>
+                                {movie.poster_path != null ?
+                                    < img src={`${requests.IMG_URL_M}${movie.poster_path}`} alt="Movie/Tv Image" />
+                                    : ""
+                                }
+                            </Link>)}
+                    </div>
 
-            </div>
+                </div>
+                : ""}
         </>
     )
 }

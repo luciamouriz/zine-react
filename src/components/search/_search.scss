@@ -18,7 +18,6 @@
 .search-container {
 
     position: absolute;
-    display: none;
     width: 100%;
     height: 100%;
     z-index: 100;
@@ -41,10 +40,7 @@
             height: calc(10em + 10vw);
             transition: .3s ease all;
 
-            &:hover {
-                transform: scale(1.2);
-                transform-origin: center;
-            }
+            @include conf.hover-videos;
         }
 
 

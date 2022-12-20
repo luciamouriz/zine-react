@@ -13,7 +13,7 @@ export const InfoVideo = () => {
     <>
       <Header />
       <main>
-        <div className="contenedor-ficha">
+        <div className="container-info-video">
           <Link className="back-arrow" to="/">&#129092;</Link>
           <div className="info-video">
             <HeadVideo key={id} id={id} video={video} />

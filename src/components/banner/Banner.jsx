@@ -48,7 +48,7 @@ export const Banner = () => {
                     <p className="title">{movies.original_title ? movies.original_title : movies.name}</p>
                     <p className="description">{movies.overview + "..."}</p>
                     <div className="buttons">
-                        <Link className="button-play" to={`/${movies.media_type}/${movies.id}`}>&#128898; Reproducir</Link>
+                        <Link className="button-play" to={`/${movies.media_type}/${movies.id}`}>&#128898; &nbsp; Reproducir</Link>
                         <div className="button-valued">
                             <div className="star" style={getColorStar()}>&#9733;</div>
                             <div>{Math.round(movies.vote_average) + "/10"}</div>

@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Link } from 'react-router-dom';
 import requests from "../../requests";
 
 
-export const Carousel = ({ title, classname, url , video }) => {
+export const Carousel = ({ title, classname, url, video }) => {
 
 
     const [movies, setMovies] = useState([]);
@@ -31,22 +31,37 @@ export const Carousel = ({ title, classname, url , video }) => {
 
     const getCast = (movie) => {
         if (movie.profile_path != null) {
-            return [<p className='depart'>{movie.known_for_department}</p>,
-            <img src={`${requests.IMG_URL_M}${movie.profile_path}`} alt='Photo Actor' />,
-            <p>{movie.name}</p>,
-            <p>{movie.character}</p>]
+            return <div className={classname}>
+                <p className='depart'>{movie.known_for_department}</p>
+                <img src={`${requests.IMG_URL_M}${movie.profile_path}`} alt='Photo Actor' />
+                <p>{movie.name}</p>
+                <p>{movie.character}</p>
+            </div>
         } else { return }
     }
 
     const getSimilar = (movie) => {
-        if (movie.backdrop_path != null) {
-            return [<p className='title-similar'>{movie.title}</p>,
-            <Link to={movie.media_type ? `/${movie.media_type}/${movie.id}` : `/${video}/${movie.id}`}>
-                <img src={`${requests.IMG_URL_M}${movie.backdrop_path}`} alt='Poster Similar' />
-            </Link>]
+        if (classname === "similar" && movie.backdrop_path != null) {
+            return <div className={classname}>
+                <p className='title-similar'>{movie.title}</p>
+                <Link to={movie.media_type ? `/${movie.media_type}/${movie.id}` : `/${video}/${movie.id}`}>
+                    <img src={`${requests.IMG_URL_M}${movie.backdrop_path}`} alt='Poster Similar' />
+                </Link>
+            </div>
         } else { return }
     }
 
+    const getTop = (movie, index) => {
+        if (classname === "top" && index < 10) {
+            return <div className={classname}>
+                <div className='num-video'>
+                    <p className='top-num'>{index + 1}</p>
+                    <img src={`${requests.IMG_URL_M}${movie.poster_path}`} alt='Poster Movie/Tv' />
+                </div>
+            </div>
+        } else { return }
+
+    }
 
 
     return (
@@ -57,20 +72,20 @@ export const Carousel = ({ title, classname, url , video }) => {
             <div className="carousel-size">
                 <div className="carousel-flex">
                     {movies.length > 0 && movies.map((movie, index) =>
+                        <>
+                            {classname === "cast" && getCast(movie)}
+                            <Link to={movie.media_type ? `/${movie.media_type}/${movie.id}` : `/${video}/${movie.id}`}>
 
-                        <Link to={movie.media_type ? `/${movie.media_type}/${movie.id}` : `/${video}/${movie.id}`}>
-                            <div className={classname}>{
-                                classname == "top" ?
-                                    <div className='num-video'>
-                                        <p className='top-num'>{index + 1}</p>
-                                        <img src={`${requests.IMG_URL_M}${movie.poster_path}`} alt='Poster Movie/Tv' />
-                                    </div>
-                                    : classname == "cast" ? getCast(movie)
-                                        : classname == "similar" ? getSimilar(movie)
-                                            : <img src={`${requests.IMG_URL_M}${movie.poster_path}`} alt='Poster Movie/Tv' />
+                                {
+                                    classname == "top" ? getTop(movie, index) :
+                                        classname == "similar" ? getSimilar(movie) :
+                                            <div className={classname}>
+                                                <img src={`${requests.IMG_URL_M}${movie.poster_path}`} alt='Poster Movie/Tv' />
+                                            </div>
+                                }
+                            </Link>
 
-                            }</div>
-                        </Link>)
+                        </>)
                     }
                 </div>
             </div>

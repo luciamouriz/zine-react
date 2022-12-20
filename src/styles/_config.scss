@@ -18,10 +18,22 @@ $Snormal: calc(1em + 0.7vw); //22px
 $Smedium: calc(1em + 0.5vw); // 25px
 
 
+
+
 //Añadimos el mapa de fuentes
 @function fontfamily($family-value){
     @return map-get($font-family, $family-value );
 }
+
+@mixin hover-videos{
+
+    &:hover{
+        transform: scale(1.1);
+        transform-origin: center;
+    }
+    
+}
+
 
 @mixin flexbox-row{
     display: flex;

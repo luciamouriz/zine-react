@@ -48,10 +48,10 @@
                 background-color: #139fca6b;
                 border: 0;
                 border-radius: 0.5rem;
+                padding: 1px;
 
                 .star {
                     font-size: calc(1em + 2.5vw);
-                    margin-bottom: 1rem;
                     color: #16CA13;
                 }
             }
@@ -60,18 +60,23 @@
             .button-play {
 
                 cursor: pointer;
-                width: 20%;
+                width: 15%;
                 font-size: conf.$Ssubtitule;
-                background-color: #139ECA;
+                background-color: conf.$secondary-color;
                 border: 0;
                 border-radius: 0.5rem;
+                align-self: center;
+                padding: 1em;
+                text-align: center;
+                transition: all 0.5s ease 0s;
 
                 &:hover {
-                    background: rgba(0, 0, 0, 0.3)
+                    background: rgb(21, 21, 21);
+                    color: conf.$secondary-color;
                 }
 
                 &:active {
-                    background-color: #139ECA;
+                    background-color: conf.$secondary-color;
                 }
             }
         }
