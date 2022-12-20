@@ -1,0 +1,52 @@
+@use "../../styles/config" as conf;
+
+.search {
+    font-family: conf.$familyRuda;
+    font-size: conf.$Snormal;
+    color: conf.$primary-color;
+    background: transparent;
+    width: calc(7em + 7vw);
+    border: 0;
+    border-bottom: 1px white solid;
+
+    &:focus {
+        outline: 0;
+    }
+}
+
+
+.search-container {
+
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+
+    margin-top: 70em;
+    left: 0;
+
+    .search-videos {
+
+        @include conf.flexbox-row;
+        flex-wrap: wrap;
+        gap: 2rem;
+        padding: 3rem;
+        z-index: 105;
+        background-color: #080606;
+
+        img {
+
+            width: calc(6em + 8vw);
+            height: calc(10em + 10vw);
+            transition: .3s ease all;
+
+            &:hover {
+                transform: scale(1.2);
+                transform-origin: center;
+            }
+        }
+
+
+    }
+}

@@ -17,8 +17,8 @@ export const InfoVideo = () => {
           <Link className="back-arrow" to="/">&#129092;</Link>
           <div className="info-video">
             <HeadVideo key={id} id={id} video={video} />
-            <Carousel title="Cast" classname="cast" url={`/${video}/${id}/credits${requests.fetchInfoVideo}`} />
-            <Carousel title="Similar" classname="similar" url={`/${video}/${id}/similar${requests.fetchInfoVideo}`} video={video} />
+            <Carousel key={id} title="Cast" classname="cast" url={`/${video}/${id}/credits${requests.fetchInfoVideo}`} />
+            <Carousel key={id} title="Similar" classname="similar" url={`/${video}/${id}/similar${requests.fetchInfoVideo}`} video={video} />
           </div>
         </div>
       </main>

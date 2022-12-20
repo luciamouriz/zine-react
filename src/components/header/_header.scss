@@ -16,20 +16,7 @@ header {
         .logo {
             width: calc(6em + 3vw);
         }
-
-        .search {
-            font-family: conf.$familyRuda;
-            font-size: conf.$Snormal;
-            color: conf.$primary-color;
-            background: transparent;
-            width: calc(7em + 7vw);
-            border: 0;
-            border-bottom: 1px white solid;
-
-            &:focus {
-                outline: 0;
-            }
-        }
+        
     }
     
 }

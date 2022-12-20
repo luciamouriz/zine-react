@@ -29,7 +29,6 @@ export const Banner = () => {
     }
 
 
-
     useEffect(() => {
         async function fetchData() {
             const request = await axios.get(requests.fetchPopular);
@@ -39,10 +38,6 @@ export const Banner = () => {
         fetchData();
     }, []);
 
-    const handleClickPlay = () => {
-
-
-    }
 
     return (
         <div className="container-card-front">
