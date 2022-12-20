@@ -29,9 +29,11 @@
     .gender {
         font-family: conf.fontfamily(rudaBold);
     }
+
+    .info-img{
+        align-self: center;
+        width: 80%;
+        
+    }
 }
 
-.info-img{
-    width: 100%;
-    height: 100%;
-}

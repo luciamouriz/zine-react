@@ -1,7 +1,6 @@
 
 import { Home } from './pages/Home'
 import { InfoVideo } from './pages/InfoVideo'
-import requests from './requests'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export const App = () => {

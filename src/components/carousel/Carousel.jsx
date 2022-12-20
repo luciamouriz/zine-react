@@ -41,18 +41,18 @@ export const Carousel = ({ title, classname, url, video }) => {
     }
 
     const getSimilar = (movie) => {
-        if (classname === "similar" && movie.backdrop_path != null) {
+        if (movie.backdrop_path != null) {
             return <div className={classname}>
                 <p className='title-similar'>{movie.title}</p>
-                <Link to={movie.media_type ? `/${movie.media_type}/${movie.id}` : `/${video}/${movie.id}`}>
+                <a href={movie.media_type ? `/${movie.media_type}/${movie.id}` : `/${video}/${movie.id}`}>
                     <img src={`${requests.IMG_URL_M}${movie.backdrop_path}`} alt='Poster Similar' />
-                </Link>
+                </a>
             </div>
         } else { return }
     }
 
     const getTop = (movie, index) => {
-        if (classname === "top" && index < 10) {
+        if (index < 10) {
             return <div className={classname}>
                 <div className='num-video'>
                     <p className='top-num'>{index + 1}</p>
@@ -65,30 +65,33 @@ export const Carousel = ({ title, classname, url, video }) => {
 
 
     return (
-        <div className="carousel-container">
-            <h2>{title}</h2>
-            <button className="arrow-left arrow-color" onClick={handleClickArrowLeft}>&#10094;</button>
-            <button className="arrow-right arrow-color" onClick={handleClickArrowRight}>&#10095;</button>
-            <div className="carousel-size">
-                <div className="carousel-flex">
-                    {movies.length > 0 && movies.map((movie, index) =>
-                        <>
-                            {classname === "cast" && getCast(movie)}
-                            <Link to={movie.media_type ? `/${movie.media_type}/${movie.id}` : `/${video}/${movie.id}`}>
+        <>
+            {movies.length > 0 &&
+                <div className="carousel-container">
+                    <h2>{title}</h2>
+                    <button className="arrow-left arrow-color" onClick={handleClickArrowLeft}>&#10094;</button>
+                    <button className="arrow-right arrow-color" onClick={handleClickArrowRight}>&#10095;</button>
+                    <div className="carousel-size">
+                        <div className="carousel-flex">
+                            {movies.length > 0 && movies.map((movie, index) =>
+                                <>
+                                    {classname === "cast" && getCast(movie)}
+                                    <a href={movie.media_type ? `/${movie.media_type}/${movie.id}` : `/${video}/${movie.id}`}>
 
-                                {
-                                    classname == "top" ? getTop(movie, index) :
-                                        classname == "similar" ? getSimilar(movie) :
-                                            <div className={classname}>
-                                                <img src={`${requests.IMG_URL_M}${movie.poster_path}`} alt='Poster Movie/Tv' />
-                                            </div>
-                                }
-                            </Link>
+                                        {classname == "top" ? getTop(movie, index) :
+                                            classname == "similar" ? getSimilar(movie) :
+                                                classname == "movie" || classname == "recomendation" ?
+                                                    <div className={classname}>
+                                                        <img src={`${requests.IMG_URL_M}${movie.poster_path}`} alt='Poster Movie/Tv' />
+                                                    </div> : ""
+                                        }
+                                    </a>
 
-                        </>)
-                    }
-                </div>
-            </div>
-        </div>
+                                </>)
+                            }
+                        </div>
+                    </div>
+                </div>}
+        </>
     )
 }
