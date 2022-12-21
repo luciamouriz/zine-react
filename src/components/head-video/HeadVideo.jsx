@@ -49,11 +49,21 @@ export const HeadVideo = ({ id, video }) => {
         if (video == "movie") {
             return [<p className="gender">{"Movie"}</p>,
             <p className="title-info">{movies.title}</p>,
-            <p className="info">{movies.release_date}</p>]
+            <p className="info">
+                {movies.release_date && movies.release_date.toString().substring(0, 4) + " "}
+                {movies.runtime && movies.runtime.toString().substring(0, 1) + "h "}
+                {movies.runtime && movies.runtime.toString().substring(1, 3) + "m "}
+                {movies.genres && movies.genres[0].name}
+            </p>]
         } else {
             return [<p className="gender">{"Serie"}</p>,
             <p className="title-info">{movies.name}</p>,
-            <p className="info">{movies.first_air_date}</p>]
+            <p className="info">
+                {movies.first_air_date && movies.first_air_date.toString().substring(0, 4) + " "}
+                {movies.episode_run_time && movies.episode_run_time.toString().substring(0, 1) + "h "}
+                {movies.runtime && movies.runtime.toString().substring(1, 3) + "m "}
+                {movies.genres && movies.genres[0].name}
+            </p>]
         }
     }
 
@@ -67,7 +77,7 @@ export const HeadVideo = ({ id, video }) => {
             <hr />
             <p>{movies.overview}</p>
             <hr />
-            
+
         </>
 
     )

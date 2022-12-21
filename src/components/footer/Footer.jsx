@@ -32,7 +32,7 @@ export const Footer = () => {
                 <span></span>
                 <img className="logo-footer" src={zine} alt="Logo Zine" />
                 <span></span>
-                <p className="copy">Copyright &copy; 2022 Zine - Made with &#128153; by Lucia. API TMDB.</p>
+                <p className="copy">Copyright &copy; 2022 Zine - Made with &#128153; by Lucia. API TMDB with React.</p>
             </div>
         </footer>
     )

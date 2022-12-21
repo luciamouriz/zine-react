@@ -20,6 +20,9 @@ export const InfoVideo = () => {
             <HeadVideo key={id} id={id} video={video} />
             <Carousel key={id} title="Cast" classname="cast" url={`/${video}/${id}/credits${requests.fetchInfoVideo}`} />
             {video == "tv" && <Season key={id} id={id} />}
+            <br/>
+            <br/>
+            <hr/>
             <Carousel key={id} title="Similar" classname="similar" url={`/${video}/${id}/similar${requests.fetchInfoVideo}`} video={video} />
           </div>
         </div>

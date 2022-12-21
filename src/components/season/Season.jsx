@@ -32,7 +32,7 @@ export const Season = ({ id }) => {
           <div className={index === isVisible ? 'episodes' : 'episodes-none'}>
             <Carousel key={season.id} classname="episodes" url={`/tv/${id}/season/${season.season_number}${requests.fetchInfoVideo}`} />
           </div>
-          <hr/>
+          <span></span>
         </>
       )}
     </div>
