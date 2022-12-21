@@ -66,6 +66,7 @@ export const Carousel = ({ title, classname, url, video }) => {
 
     return (
         <>
+            {/*  Preguntamos si hay movies,cast,similar si no hay no se pondran*/}
             {movies.length > 0 &&
                 <div className="carousel-container">
                     <h2>{title}</h2>
@@ -76,6 +77,7 @@ export const Carousel = ({ title, classname, url, video }) => {
                             {movies.length > 0 && movies.map((movie, index) =>
                                 <>
                                     {classname === "cast" && getCast(movie)}
+                                    {/* Tendran enlace los siguientes carrouseles */}
                                     <a href={movie.media_type ? `/${movie.media_type}/${movie.id}` : `/${video}/${movie.id}`}>
 
                                         {classname == "top" ? getTop(movie, index) :

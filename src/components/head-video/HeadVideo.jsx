@@ -1,7 +1,6 @@
 import axios from "../../axios";
 import { useEffect, useState } from "react";
 import requests from "../../requests";
-import { Link } from "react-router-dom";
 
 export const HeadVideo = ({ id, video }) => {
 
@@ -22,7 +21,7 @@ export const HeadVideo = ({ id, video }) => {
 
     }, []);
 
-
+    //Preguntamos si existe el video si no existe que añada la imagen de portada
     const existVideo = () => {
         let j
         if (trailers.length > 0) {
@@ -45,6 +44,7 @@ export const HeadVideo = ({ id, video }) => {
         }
     }
 
+    //Como movie y tv tienen diferentes claves, se filtran mediante una condicion
     const filterInfo = () => {
         if (video == "movie") {
             return [<p className="gender">{"Movie"}</p>,
@@ -56,7 +56,6 @@ export const HeadVideo = ({ id, video }) => {
             <p className="info">{movies.first_air_date}</p>]
         }
     }
-
 
 
 

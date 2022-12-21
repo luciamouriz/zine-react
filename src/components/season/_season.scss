@@ -1,0 +1,22 @@
+@use "../../styles/config" as conf;
+
+
+.container-seasons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .box-season {
+        background: linear-gradient(180deg, #139ECA 0%, rgba(32, 152, 189, 0.489583) 99.99%, rgba(45, 145, 176, 0) 100%);
+        font-size: 1rem;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        cursor: pointer;
+
+        p {
+            font-size: calc(1em + 0.5vw);
+        }
+
+    }
+
+}

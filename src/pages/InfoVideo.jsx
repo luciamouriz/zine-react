@@ -3,6 +3,7 @@ import { Carousel } from "../components/carousel/Carousel"
 import { Footer } from "../components/footer/Footer"
 import { HeadVideo } from "../components/head-video/HeadVideo"
 import { Header } from "../components/header/Header"
+import { Season } from "../components/season/Season"
 import requests from "../requests"
 
 export const InfoVideo = () => {
@@ -18,6 +19,7 @@ export const InfoVideo = () => {
           <div className="info-video">
             <HeadVideo key={id} id={id} video={video} />
             <Carousel key={id} title="Cast" classname="cast" url={`/${video}/${id}/credits${requests.fetchInfoVideo}`} />
+            {video == "tv" && <Season id={id} />}
             <Carousel key={id} title="Similar" classname="similar" url={`/${video}/${id}/similar${requests.fetchInfoVideo}`} video={video} />
           </div>
         </div>

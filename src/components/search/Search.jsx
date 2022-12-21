@@ -29,11 +29,13 @@ export const Search = () => {
     return (
         <>
             <input type="text" name="text" className="search" placeholder="SEARCH" onChange={handleChange} />
+            {/* Si hay texto en la caja nos aparece lo siguiente, si no se quitara */}
             {search.length > 0 &&
                 <div className="search-container">
                     <div className="search-videos">
                         {movies.length > 0 && movies.map((movie) =>
                             <a href={`/${movie.media_type}/${movie.id}`}>
+                                {/* Si no tiene poster no sale */}
                                 {movie.poster_path != null &&
                                     < img src={`${requests.IMG_URL_M}${movie.poster_path}`} alt="Movie/Tv Image" />
                                 }

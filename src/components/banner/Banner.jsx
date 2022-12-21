@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 export const Banner = () => {
 
     const [movies, setMovies] = useState([]);
+
+    //CSS de la estrella
     const styles = {
         green: {
             color: "#16CA13"
@@ -18,6 +20,7 @@ export const Banner = () => {
         }
     }
 
+    //Puntuacion y actualizamos color de estrella
     const getColorStar = () => {
         if (movies.vote_average >= 7) {
             return styles.green;
