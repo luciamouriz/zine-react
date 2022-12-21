@@ -69,7 +69,7 @@
             flex-wrap: nowrap;
             flex-direction: row;
             align-items: flex-start;
-            gap: 2rem;
+            gap: 1.5rem;
             margin-left: 4rem;
 
             .movie,
@@ -150,7 +150,7 @@
 .cast {
     text-align: center;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
-    margin-bottom: 18rem;
+    margin-bottom: 3rem;
 
     img {
         width: calc(4em + 7vw);
@@ -191,59 +191,33 @@
 
 
 
-//CARRUSEL VISTAS
-
-.show {
-    display: none;
-}
-
-.visto {
-    position: relative;
-
-    span {
-        position: absolute;
-        top: 90%;
-        width: 100%;
-        height: 10px;
-        background: linear-gradient(90deg, #139ECA 2.73%, rgba(19, 158, 202, 0.520833) 47.77%, rgba(19, 158, 202, 0) 71.27%);
-
-    }
-}
-
 
 //CAROUSEL EPISODIOS
-.contenedor-episodes-none {
+.episodes-none {
     display: none;
 }
 
-.contenedor-episodes {
-    margin-bottom: 3rem;
 
-    .flecha-color {
-        height: 75%;
-        top: 16%
+.episodes {
+    position: relative;
+    margin-bottom: 6rem;
+
+
+    img {
+        width: calc(14em + 13vw);
+        height: calc(7em + 10vw);
     }
 
-    .episode {
-        position: relative;
-        margin-bottom: 6rem;
+    .title-episode {
+        font-size: conf.$Snormal;
+    }
 
-        img {
-            width: calc(14em + 13vw);
-            height: calc(7em + 10vw);
-        }
-
-        .title-episode {
-            font-size: conf.$Snormal;
-        }
-
-        .descripcion-episodio {
-            position: absolute;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 1rem;
-            top: 100%;
-        }
+    .description-episode {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1rem;
+        top: 100%;
     }
 }

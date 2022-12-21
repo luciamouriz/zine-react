@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import axios from "../../axios";
-import { BrowserRouter as Router, Link } from 'react-router-dom';
 import requests from "../../requests";
 
 
@@ -12,9 +11,16 @@ export const Carousel = ({ title, classname, url, video }) => {
     useEffect(() => {
         async function fetchData() {
             const request = await axios.get(url);
-            setMovies(request.data.cast)
             //Si no es data.results añadimos el data.cast (para el carousel de reparto en la page InfoVideo)
-            request.data.results ? setMovies(request.data.results) : setMovies(request.data.cast)
+            switch (classname) {
+                case "cast": setMovies(request.data.cast)
+                    break;
+                case "episodes": setMovies(request.data.episodes)
+                    break;
+
+                default: setMovies(request.data.results)
+            }
+
             return request;
         }
         fetchData();
@@ -43,7 +49,7 @@ export const Carousel = ({ title, classname, url, video }) => {
     const getSimilar = (movie) => {
         if (movie.backdrop_path != null) {
             return <div className={classname}>
-                <p className='title-similar'>{movie.title}</p>
+                <p className='title-similar'>{movie.title ? movie.title : movie.name}</p>
                 <a href={movie.media_type ? `/${movie.media_type}/${movie.id}` : `/${video}/${movie.id}`}>
                     <img src={`${requests.IMG_URL_M}${movie.backdrop_path}`} alt='Poster Similar' />
                 </a>
@@ -63,6 +69,19 @@ export const Carousel = ({ title, classname, url, video }) => {
 
     }
 
+    const getEpisodes = (movie) => {
+        if (movie.still_path != null) {
+            return <div className={classname}>
+                <div className="description-episode">
+                    <p className='title-episode'>{movie.name}</p>
+                    <p>{movie.overview}</p>
+                </div>
+                <img src={`${requests.IMG_URL_M}${movie.still_path}`} alt='Episode' />
+            </div>
+        } else { return }
+    }
+
+
 
     return (
         <>
@@ -74,12 +93,12 @@ export const Carousel = ({ title, classname, url, video }) => {
                     <button className="arrow-right arrow-color" onClick={handleClickArrowRight}>&#10095;</button>
                     <div className="carousel-size">
                         <div className="carousel-flex">
-                            {movies.length > 0 && movies.map((movie, index) =>
+                            {movies.map((movie, index) =>
                                 <>
                                     {classname === "cast" && getCast(movie)}
+                                    {classname === "episodes" && getEpisodes(movie)}
                                     {/* Tendran enlace los siguientes carrouseles */}
                                     <a href={movie.media_type ? `/${movie.media_type}/${movie.id}` : `/${video}/${movie.id}`}>
-
                                         {classname == "top" ? getTop(movie, index) :
                                             classname == "similar" ? getSimilar(movie) :
                                                 classname == "movie" || classname == "recomendation" ?
