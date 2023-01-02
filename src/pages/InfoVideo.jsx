@@ -15,7 +15,7 @@ export const InfoVideo = () => {
       <Header />
       <main>
         <div className="container-info-video">
-          <Link className="back-arrow" to="/zine-react">&#129092;</Link>
+          <Link className="back-arrow" to="/">&#129092;</Link>
           <div className="info-video">
             <HeadVideo key={id} id={id} video={video} />
             <Carousel key={id} title="Cast" classname="cast" url={`/${video}/${id}/credits${requests.fetchInfoVideo}`} />

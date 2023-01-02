@@ -7,7 +7,7 @@ export const Header = () => {
     return (
         <header>
             <div className="container-header">
-                <Link to={"/zine-react"}>
+                <Link to="/">
                     <img className="logo" src={logo} alt="logo Zine" />
                 </Link>
                 <Search />

@@ -6,12 +6,11 @@ import { Routes, Route } from "react-router-dom";
 export const App = () => {
     return (
 
-        
-            <Routes>
-                <Route element={<Home />} path="/zine-react" />
-                <Route element={<InfoVideo />} path=":video/:id" />
-            </Routes>
-        
+
+        <Routes>
+            <Route element={<Home />} path="/" />
+            <Route element={<InfoVideo />} path="/:video/:id" />
+        </Routes>
 
     )
 }
