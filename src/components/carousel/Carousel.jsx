@@ -51,7 +51,7 @@ export const Carousel = ({ title, classname, url, video }) => {
         if (movie.backdrop_path != null) {
             return <div className={classname}>
                 <p className='title-similar'>{movie.title ? movie.title : movie.name}</p>
-                <Link to={movie.media_type ? `/${movie.media_type}/${movie.id}` : `/${video}/${movie.id}`}>
+                <Link  reloadDocument to={movie.media_type ? `/${movie.media_type}/${movie.id}` : `/${video}/${movie.id}`}>
                     <img src={`${requests.IMG_URL_M}${movie.backdrop_path}`} alt='Poster Similar' />
                 </Link>
             </div>
