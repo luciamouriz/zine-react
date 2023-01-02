@@ -8,7 +8,7 @@ export const App = () => {
 
         
             <Routes>
-                <Route element={<Home />} path="/" />
+                <Route element={<Home />} path="/zine-react" />
                 <Route element={<InfoVideo />} path=":video/:id" />
             </Routes>
         
