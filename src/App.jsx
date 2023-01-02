@@ -6,12 +6,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 export const App = () => {
     return (
 
-        <BrowserRouter>
+        
             <Routes>
-                <Route element={<Home />} path="/" />
+                <Route exact element={<Home />} path="/" />
                 <Route element={<InfoVideo />} path=":video/:id" />
             </Routes>
-        </BrowserRouter>
+        
 
     )
 }
