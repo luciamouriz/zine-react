@@ -44,52 +44,40 @@ h2 {
 //MEDIA QUERIES MOBILE
 
 @include conf.mobile {
-    .contenedor-portada {
-        .portada {
-            height: 75vw;
+    .container-card-front {
+
+        .card-front {
+            height: 70vw;
             margin-bottom: 2em;
+
         }
 
         .card {
-            top: 30%;
-            gap: 0.5rem;
 
-            .titulo {
+            .title {
                 font-size: 6vw;
             }
 
-            .tipo-video {
-                font-size: 2.5vw;
+            .description {
+                display: none;
             }
 
-            .descripcion {
-                width: 90%;
-                min-height: 2%;
-                font-size: 3vw;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-
-            .botones {
-                height: 2%;
+            .buttons {
                 gap: 0.5rem;
 
-                .boton-valorado {
-
+                .button-valued {
                     width: 25%;
                     border-radius: 0.2rem;
-
-                    #valorado {
-                        font-size: 5vw;
-                    }
+                    font-size: 4vw;
+                    padding: 0;
 
                     .star {
-                        margin-bottom: 0.4rem;
                         font-size: 10vw;
                     }
                 }
 
-                #play {
+
+                .button-play {
                     border-radius: 0.2rem;
                     width: 30%;
                     font-size: 4vw;
@@ -99,62 +87,62 @@ h2 {
 
     }
 
-    .carousel-size {
-        padding: 1.5rem 0 1.5rem 0;
+    .carousel-container {
 
-        .carousel-flex {
-            gap: 1rem;
-            margin-left: 1rem;
-        }
+        .carousel-size {
+            padding: 1.5rem 0 1.5rem 0;
 
-        .popular,
-        .pelicula,
-        .serie,
-        .visto {
-            &:hover {
-                transform: none;
-            }
-        }
-    }
+            .carousel-flex {
+                gap: 1rem;
+                margin-left: 1rem;
 
-    //Quitar hovers
-    .contenedor-recomendaciones {
-        .contenedor-carousel-recomendaciones {
-            .recomendacion {
-                &:hover {
-                    transform: none;
+                movie {
+                    &:hover {
+                        transform: none;
+                    }
                 }
             }
         }
     }
 
-    .contenedor-similar {
-        .similar {
-            &:hover {
-                transform: none;
+    //Footer
+    footer {
+        padding-top: 5rem;
+
+        .info-footer {
+            flex-direction: column;
+            align-items: center;
+            gap: 5rem;
+
+            .knowus,
+            .help,
+            .terms {
+                h2 {
+                    font-size: conf.$Stitle;
+                }
+            }
+
+            .rrss-footer {
+                width: 40%;
+
+                h2 {
+                    font-size: conf.$Stitle;
+                }
+            }
+        }
+
+        .lines {
+            .copy {
+                font-size: 4vw;
+                margin: 2rem 6rem;
             }
         }
     }
 
 
-    .visto {
-        span {
-            height: 5px;
-        }
-    }
 
 
 
-    //Footer
-    footer {
-        padding-top: 5rem;
-    }
-
-    .info-footer {
-        flex-direction: column;
-        align-items: center;
-        gap: 5rem;
-    }
 
 
 

@@ -6,7 +6,7 @@ footer {
     padding-top: 10rem;
     padding-bottom: 10rem;
     background: linear-gradient(180deg, #139ECA -11.15%, rgba(19, 158, 202, 0.52405) 26.69%, rgba(19, 158, 202, 0.243914) 43.36%, rgba(19, 158, 202, 0.106218) 53.47%, rgba(19, 158, 202, 0) 63.94%), #080606;
-
+    
     .info-footer {
         display: flex;
         flex-direction: row;
@@ -20,9 +20,12 @@ footer {
         .help,
         .terms {
             display: flex;
-
             flex-direction: column;
             gap: 2rem;
+
+            h2{
+                font-size: conf.$Snormal;
+            }
 
             a {
                 text-decoration: none;
@@ -36,6 +39,10 @@ footer {
             align-items: center;
             gap: 1rem;
 
+            h2{
+                font-size: conf.$Snormal;
+            }
+            
             img {
                 width: calc(12em + 3vw);
                 height: calc(5em + 1vw);

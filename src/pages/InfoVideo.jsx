@@ -19,6 +19,7 @@ export const InfoVideo = () => {
           <div className="info-video">
             <HeadVideo key={id} id={id} video={video} />
             <Carousel key={id} title="Cast" classname="cast" url={`/${video}/${id}/credits${requests.fetchInfoVideo}`} />
+            {/* Si es tv que añada las temporadas y episodios */}
             {video == "tv" && <Season key={id} id={id} />}
             <br/>
             <br/>
