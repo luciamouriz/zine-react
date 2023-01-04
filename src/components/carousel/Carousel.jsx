@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, ScrollRestoration } from 'react-router-dom';
 import axios from "../../axios";
 import requests from "../../requests";
-
 
 export const Carousel = ({ title, classname, url, video }) => {
 
@@ -47,13 +46,12 @@ export const Carousel = ({ title, classname, url, video }) => {
         } else { return }
     }
 
+    
     const getSimilar = (movie) => {
         if (movie.backdrop_path != null) {
             return <div className={classname}>
                 <p className='title-similar'>{movie.title ? movie.title : movie.name}</p>
-                <Link reloadDocument to={movie.media_type ? `${movie.media_type}/${movie.id}` : `${video}/${movie.id}`}>
-                    <img src={`${requests.IMG_URL_M}${movie.backdrop_path}`} alt='Poster Similar' />
-                </Link>
+                <img src={`${requests.IMG_URL_M}${movie.backdrop_path}`} alt='Poster Similar' />
             </div>
         } else { return }
     }
@@ -84,6 +82,8 @@ export const Carousel = ({ title, classname, url, video }) => {
 
 
 
+
+
     return (
         <>
             {/*  Preguntamos si hay movies,cast,similar si no hay no se pondran*/}
@@ -99,7 +99,7 @@ export const Carousel = ({ title, classname, url, video }) => {
                                     {classname === "cast" && getCast(movie)}
                                     {classname === "episodes" && getEpisodes(movie)}
                                     {/* Tendran enlace los siguientes carrouseles */}
-                                    <Link reloadDocument to={movie.media_type ? `${movie.media_type}/${movie.id}` : `${video}/${movie.id}`}>
+                                    <Link to={movie.media_type ? `/${movie.media_type}/${movie.id}` : `/${video}/${movie.id}`}>
                                         {classname == "top" ? getTop(movie, index) :
                                             classname == "similar" ? getSimilar(movie) :
                                                 classname == "movie" || classname == "recomendation" ?
@@ -108,7 +108,12 @@ export const Carousel = ({ title, classname, url, video }) => {
                                                     </div> : ""
                                         }
                                     </Link>
-
+                                    <ScrollRestoration
+                                        getKey={(location, matches) => {
+                                            // default behavior
+                                            return location.key;
+                                        }}
+                                    />
                                 </>)
                             }
                         </div>

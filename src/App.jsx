@@ -1,16 +1,25 @@
 
-import { Home } from './pages/Home'
-import { InfoVideo } from './pages/InfoVideo'
-import { Routes, Route } from "react-router-dom";
+import { Home } from './pages/Home';
+import { InfoVideo } from './pages/InfoVideo';
+import { RouterProvider } from "react-router";
+import { createBrowserRouter, createHashRouter,Navigate } from 'react-router-dom';
 
 export const App = () => {
-    return (
+
+    const router = createBrowserRouter([
+        {
+            path: "/",
+            element: <Home />
+        },
+        
+        {
+            path: "/:video/:id",
+            element: <InfoVideo />
+        }
+        
+    ], { basename: "/zine-react" });
 
 
-        <Routes>
-            <Route element={<Home />} path="/" />
-            <Route element={<InfoVideo />} path=":video/:id" />
-        </Routes>
+    return <RouterProvider router={router} />
 
-    )
 }

@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom"
+import { Link, ScrollRestoration, useParams } from "react-router-dom"
 import { Carousel } from "../components/carousel/Carousel"
 import { Footer } from "../components/footer/Footer"
 import { HeadVideo } from "../components/head-video/HeadVideo"
@@ -21,15 +21,15 @@ export const InfoVideo = () => {
             <Carousel key={id} title="Cast" classname="cast" url={`/${video}/${id}/credits${requests.fetchInfoVideo}`} />
             {/* Si es tv que añada las temporadas y episodios */}
             {video == "tv" && <Season key={id} id={id} />}
-            <br/>
-            <br/>
-            <hr/>
+            <br />
+            <br />
+            <hr />
             <Carousel key={id} title="Similar" classname="similar" url={`/${video}/${id}/similar${requests.fetchInfoVideo}`} video={video} />
           </div>
         </div>
       </main>
       <Footer />
-
+      
     </>
   )
 }
