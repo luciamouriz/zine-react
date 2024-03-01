@@ -1,4 +1,4 @@
-import { Link, ScrollRestoration, useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { Carousel } from "../components/carousel/Carousel"
 import { Footer } from "../components/footer/Footer"
 import { HeadVideo } from "../components/head-video/HeadVideo"
@@ -29,7 +29,7 @@ export const InfoVideo = () => {
         </div>
       </main>
       <Footer />
-      
+
     </>
   )
 }
